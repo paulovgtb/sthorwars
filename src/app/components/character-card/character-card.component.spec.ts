@@ -12,7 +12,7 @@ describe('CharacterCardComponent', () => {
     it('image has correct alt', async () => {
       await render(CharacterCardComponent, {
         componentInputs: {
-          characterName: 'Yoda',
+          name: 'Yoda',
         },
       });
 
@@ -23,7 +23,7 @@ describe('CharacterCardComponent', () => {
     it('has character name', async () => {
       await render(CharacterCardComponent, {
         componentInputs: {
-          characterName: 'Yoda',
+          name: 'Yoda',
         },
       });
       const characterName = screen.getByText('Yoda');

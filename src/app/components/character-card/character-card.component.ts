@@ -9,6 +9,10 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./character-card.component.scss'],
 })
 export class CharacterCardComponent {
-  @Input() characterName!: string;
-  @Input() imageUrl!: string;
+  @Input() name!: string;
+  @Input() set id(imageId: string) {
+    this._imageUrl = `https://starwars-visualguide.com/assets/img/characters/${imageId}.jpg`;
+  }
+
+  _imageUrl: string = '';
 }
