@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CharacterCardComponent } from '../character-card/character-card.component';
+import { Character } from 'src/app/interfaces/character.interface';
 
 @Component({
   selector: 'app-character-list',
@@ -10,5 +11,5 @@ import { CharacterCardComponent } from '../character-card/character-card.compone
   styleUrls: ['./character-list.component.scss'],
 })
 export class CharacterListComponent {
-  @Input() characterList: { name: string; id: string }[];
+  @Input() characterList: Character[];
 }
