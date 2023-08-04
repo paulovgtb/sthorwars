@@ -9,10 +9,27 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./character-card.component.scss'],
 })
 export class CharacterCardComponent {
-  @Input() name!: string;
-  @Input() set id(imageId: string) {
-    this._imageUrl = `https://starwars-visualguide.com/assets/img/characters/${imageId}.jpg`;
+  @Input() set character(characterInfo: any) {
+    this._character =
+      characterInfo.name === 'Obi-Wan Kenobi'
+        ? this.useTheForce(characterInfo)
+        : characterInfo;
+    this._imageUrl = `https://starwars-visualguide.com/assets/img/characters/${characterInfo.id}.jpg`;
   }
 
+  _character!: any;
   _imageUrl: string = '';
+
+  private useTheForce(obiWanInfo: any): any {
+    return {
+      ...obiWanInfo,
+      height: 'This',
+      mass: 'Is',
+      hair_color: 'The',
+      skin_color: 'Dev',
+      eye_color: "You're",
+      birth_year: 'Looking',
+      gender: 'For',
+    };
+  }
 }
