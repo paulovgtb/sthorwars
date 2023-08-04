@@ -10,7 +10,7 @@ import { LoadingComponent } from '../loading/loading.component';
   styleUrls: ['./load-more-button.component.scss'],
 })
 export class LoadMoreButtonComponent {
-  @Input() nextPage!: string;
-  @Input() loading!: boolean | null;
+  @Input() nextPage: string;
+  @Input() loading: boolean;
   @Output() onClick = new EventEmitter<string>();
 }

@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import { SwapiService } from './../../services/swapi.service';
 import { Component, OnInit } from '@angular/core';
+import { Character } from 'src/app/interfaces/character.interface';
 
 @Component({
   selector: 'app-main-page',
@@ -8,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit {
-  characterList$!: Observable<any>;
-  nextPage$!: Observable<any>;
-  loading$?: Observable<boolean>;
+  characterList$: Observable<Character[]>;
+  nextPage$: Observable<string>;
+  loading$: Observable<boolean>;
 
   constructor(private readonly swapiService: SwapiService) {}
 
@@ -18,7 +19,7 @@ export class MainPageComponent implements OnInit {
     this.swapiServiceStreams();
   }
 
-  fetchCharacters(api: string): void {
+  fetchCharacters(api?: string): void {
     this.swapiService.fetchCharacters(api);
   }
 

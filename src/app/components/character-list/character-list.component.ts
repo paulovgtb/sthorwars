@@ -10,5 +10,5 @@ import { CharacterCardComponent } from '../character-card/character-card.compone
   styleUrls: ['./character-list.component.scss'],
 })
 export class CharacterListComponent {
-  @Input() characterList!: { name: string; id: string }[];
+  @Input() characterList: { name: string; id: string }[];
 }
