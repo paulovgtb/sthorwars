@@ -1,0 +1,9 @@
+<button
+  class="button"
+  [style.backgroundColor]="loading ? 'transparent' : '#fff'"
+  [disabled]="!nextPage || loading"
+  (click)="onClick.emit(nextPage)"
+>
+  <app-loading *ngIf="loading; else notLoading"></app-loading>
+  <ng-template #notLoading>Load More</ng-template>
+</button>
