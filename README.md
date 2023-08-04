@@ -1,27 +1,38 @@
 # Sthorwars
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+## Table of contents
 
-## Development server
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Tests](#tests)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## General info
 
-## Code scaffolding
+Sthorwars is a project to help you learn more about the characters from the star wars universe. If you want an additional quest while checking out the project you may look for a small easter egg.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Technologies
 
-## Build
+Project was created with:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular 15.2.9
+- Jest 29.6.2
+- Testing Library Angular 14.2.0
 
-## Running unit tests
+## Setup
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To run this project, install it locally using npm:
 
-## Running end-to-end tests
+```
+$ npm install
+$ npm start
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Tests
 
-## Further help
+You may run tests with:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+$ npm test
+$ npm run test:watch
+```

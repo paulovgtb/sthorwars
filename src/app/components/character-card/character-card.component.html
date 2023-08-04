@@ -5,10 +5,10 @@
       [style.backgroundImage]="'url(' + _imageUrl + ')'"
       role="image"
     >
-      <p class="title">{{ _character.name }}</p>
+      <p class="title" data-testid="title">{{ _character.name }}</p>
     </div>
     <div class="flip-card-back">
-      <h2 class="back-title">{{ _character.name }}</h2>
+      <h2 class="back-title" data-testid="back-title">{{ _character.name }}</h2>
       <p class="back-text">Height: {{ _character.height }}</p>
       <p class="back-text">Mass: {{ _character.mass }}</p>
       <p class="back-text">Hair color: {{ _character.hair_color }}</p>
