@@ -5,6 +5,15 @@
   role="logo"
 />
 
-<app-character-list [characterList]="characterList"></app-character-list>
+<ng-container *ngIf="characterList$ | async as characterList">
+  <app-character-list [characterList]="characterList"></app-character-list>
 
-<button class="button" (click)="loadMore()">Load More</button>
+  <button
+    *ngIf="{ url: nextPage$ | async } as nextPage"
+    class="button"
+    [disabled]="!nextPage.url"
+    (click)="fetchCharacters(nextPage.url)"
+  >
+    Load More
+  </button>
+</ng-container>
