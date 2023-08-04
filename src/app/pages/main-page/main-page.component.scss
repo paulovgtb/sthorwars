@@ -9,17 +9,10 @@
   box-sizing: border-box;
   background-image: url("../../../assets/bg.jpg");
   background-size: 350px 397px;
+  background-blend-mode: hard-light;
 
   > .logo {
     width: 100%;
     max-width: 500px;
-  }
-
-  > .button {
-    font-size: 40px;
-    font-weight: bold;
-    color: #333;
-    padding: 18px 25px;
-    border-radius: 20px;
   }
 }

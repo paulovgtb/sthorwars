@@ -10,23 +10,21 @@ import { Component, OnInit } from '@angular/core';
 export class MainPageComponent implements OnInit {
   characterList$!: Observable<any>;
   nextPage$!: Observable<any>;
+  loading$?: Observable<boolean>;
 
   constructor(private readonly swapiService: SwapiService) {}
 
   ngOnInit(): void {
-    this.setCharacterListStream();
-    this.setNextPageStream();
+    this.swapiServiceStreams();
   }
 
   fetchCharacters(api: string): void {
     this.swapiService.fetchCharacters(api);
   }
 
-  private setCharacterListStream(): void {
+  private swapiServiceStreams(): void {
     this.characterList$ = this.swapiService.getCharacterList();
-  }
-
-  private setNextPageStream(): void {
     this.nextPage$ = this.swapiService.getNextPage();
+    this.loading$ = this.swapiService.getLoading();
   }
 }

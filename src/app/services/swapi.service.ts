@@ -16,12 +16,14 @@ import {
 export class SwapiService {
   private readonly _characterList = new BehaviorSubject(null);
   private readonly _nextPage = new BehaviorSubject<string>('');
+  private readonly _loading = new BehaviorSubject<boolean>(false);
 
   constructor(private readonly http: HttpClient) {
     this.fetchCharacters('/api/people/');
   }
 
   fetchCharacters(api: string): void {
+    this._loading.next(true);
     this.http
       .get(api)
       .pipe(take(1))
@@ -47,7 +49,7 @@ export class SwapiService {
       scan((characterList: any, newList: any) => {
         return [...characterList, ...newList];
       }, []),
-      tap((char) => console.log(char))
+      tap((_) => this._loading.next(false))
     );
   }
 
@@ -55,8 +57,11 @@ export class SwapiService {
     return this._nextPage.pipe(
       map((nextPage: string): string =>
         nextPage.replace('https://swapi.dev', '')
-      ),
-      tap(console.log)
+      )
     );
+  }
+
+  getLoading(): Observable<boolean> {
+    return this._loading;
   }
 }
