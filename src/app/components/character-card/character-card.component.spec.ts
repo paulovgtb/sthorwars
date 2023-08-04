@@ -5,19 +5,24 @@ describe('CharacterCardComponent', () => {
   describe('Layout', () => {
     it('has a character image', async () => {
       await render(CharacterCardComponent);
-      const image = screen.getByRole('img');
+      const image = screen.getByRole('image');
       expect(image).toBeInTheDocument();
     });
 
-    it('image has correct alt', async () => {
-      await render(CharacterCardComponent, {
+    it('has correct _imageUrl', async () => {
+      const {
+        fixture: {
+          componentInstance: { _imageUrl },
+        },
+      } = await render(CharacterCardComponent, {
         componentInputs: {
-          name: 'Yoda',
+          id: '1',
         },
       });
 
-      const image = screen.getByAltText('Yoda-image');
-      expect(image).toBeInTheDocument();
+      expect(_imageUrl).toBe(
+        `https://starwars-visualguide.com/assets/img/characters/1.jpg`
+      );
     });
 
     it('has character name', async () => {
@@ -26,6 +31,7 @@ describe('CharacterCardComponent', () => {
           name: 'Yoda',
         },
       });
+
       const characterName = screen.getByText('Yoda');
       expect(characterName).toBeInTheDocument();
     });

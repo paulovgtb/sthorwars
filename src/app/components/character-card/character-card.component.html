@@ -1,2 +1,7 @@
-<img [src]="_imageUrl" [alt]="name + '-image'" />
-<p>{{ name }}</p>
+<div
+  class="image"
+  [style.backgroundImage]="'url(' + _imageUrl + ')'"
+  role="image"
+>
+  <p class="title">{{ name }}</p>
+</div>
